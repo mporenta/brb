@@ -20,6 +20,13 @@ To setup the button IB TWS side app:
     x Let API account requests switch user-visible account subscription
     Master API client ID: 0
     x Allow connections from the localhost only
+    # Logging
+config.logpath = 'log'
+config.loglevel = logging.INFO
+
+# TWS Connection
+config.twsport = 7497
+config.clientId = 0
 '''
 
 #region import
@@ -187,7 +194,7 @@ def main():
     logging.info('The Big Red Button started')
 
     app = App(q)
-    app.connect('127.0.0.1', config.twsport, clientId=config.clientId)
+    app.connect('127.0.0.1', 4002, clientId=1)
     logging.info(f'Server version: {app.serverVersion()}, Connection time: {app.twsConnectionTime()}')
     app.run()
 
